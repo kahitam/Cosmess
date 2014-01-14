@@ -2,7 +2,8 @@ Costume Session Message
 -----------------------
 
 I made this plugin just for fun.
-This plugin for costume session messages according to what we use in Foundation or bootstrap CSS style.
+
+This plugin just configuration for costume session messages according to what we use in Foundation or bootstrap CSS style.
 
 Requirements
 ------------
