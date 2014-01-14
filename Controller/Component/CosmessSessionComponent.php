@@ -22,8 +22,8 @@ class CosmessSessionComponent extends SessionComponent {
  * Custome setFlash with parameters bootstrap / foundation
  */
 	public function setFlash($message, $element = 'default', $params = array(), $key = 'flash') {
-		if (!isset($params['class']) || isset($params['type'])) {
-			$flashType = Configure::read('Cosmess.Params.flashType');
+		$flashType = Configure::read('Cosmess.Params.flashType');
+		if (!empty($flashType)) {
 			switch ($flashType) {
 				case 'foundation':
 					$success = Configure::read('Cosmess.Class.foundation.success');
