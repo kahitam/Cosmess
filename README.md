@@ -38,6 +38,10 @@ Public $components = array(
 );
 
 ## For Croogo users:
+Activate Cosmess plugin:
+	Console/cake activate plugin Cosmess -f
+
+
 see at Cosmess/Config/bootstrap.php
 for Croogo::hookComponent();
 
