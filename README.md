@@ -2,9 +2,7 @@ Costume Session Message
 -----------------------
 
 I made this plugin just for fun.
-This plugin for costume session messages according to what we use in CSS style.
-
-This plugin can be use for Foundation or Bootstrap.
+This plugin for costume session messages according to what we use in Foundation or bootstrap CSS style.
 
 Requirements
 ------------
@@ -14,6 +12,8 @@ Config:
 -------
 If you use Foundation / Bootstrap.
 Change config `Cosmess.Params.flashType` for 'foundation' or 'bootstrap'
+
+if not, leave it blank.
 
 Put class css style:
 --------------------
@@ -29,30 +29,28 @@ Cosmess.Class.bootstrap.error (for error class)
 
 Cosmess Component
 -----------------
+## For CakePHP users:
 Put this in your controller:
 
 Public $components = array(
 	'Cosmess.Cosmess'
 );
 
-For Croogo:
-I'm already put Croogo::hookComponent for Cosmess component
-
+## For Croogo users:
+see at Cosmess/Config/bootstrap.php
+for Croogo::hookComponent();
 
 
 Example
---------
+-------
 
-Change this..
+rename CosmessSession in beforeFilter:
 
-	$this->Session->setFlash('Message', 'default', $params);
+	public function beforeFilter() {
+		$this->Session = $this->CosmessSession;
+	}
 
-into:
 
-	$this->Cosmess->setFlash('Message', 'default', $params);
-
-for parameters $params you can see it at:
-	Cosmess/Controller/Component/CosmessComponent.php
 
 
 
