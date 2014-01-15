@@ -1,6 +1,6 @@
 <?php
 /**
- * CosmessComponent. Provides to Custome Sessions from the Controller layer
+ * CosmessSessionComponent. Provides to Custome Sessions from the Controller layer
  */
 
 App::uses('SessionComponent', 'Controller/Component');
@@ -20,6 +20,8 @@ class CosmessSessionComponent extends SessionComponent {
 
 /**
  * Custome setFlash with parameters bootstrap / foundation
+ *
+ * @params['type'] : boolean for success / error class message
  */
 	public function setFlash($message, $element = 'default', $params = array(), $key = 'flash') {
 		$flashType = Configure::read('Cosmess.Params.flashType');
@@ -38,8 +40,12 @@ class CosmessSessionComponent extends SessionComponent {
 					$error = 'error';
 					break;
 			}
-			if ($params['type']) {
-				$params['class'] = $success;
+			if (isset($params['type'])) {
+				if ($params['type']) {
+					$params['class'] = $success;
+				} else {
+					$params['class'] = $error;
+				}
 			} else {
 				$params['class'] = $error;
 			}

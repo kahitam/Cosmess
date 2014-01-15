@@ -56,9 +56,12 @@ rename CosmessSession in beforeFilter:
 	}
 
 
+add $params['type'] with boolean value, true = success msg / false = error msg
 
+	$this->Session->setFlash('Message', 'default', array('type' => true));
 
 
 
 Good luck and have fun
+
 -- kahitam --
