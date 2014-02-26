@@ -5,13 +5,20 @@
 
 App::uses('SessionComponent', 'Controller/Component');
 App::uses('CakeSession', 'Model/Datasource');
+App::uses('StrUtil', 'Cosmess.Lib');
 
 class CosmessSessionComponent extends SessionComponent {
 
 	public $controller = false;
 
+	public $components = array('Session');
+
 	public function __construct(ComponentCollection $collection, $settings) {
 		parent::__construct($collection, $settings);
+	}
+
+	public function initialize(Controller $controller) {
+		$this->Session = $this->CosmessSession;
 	}
 
 	public function startup(Controller $controller) {
@@ -24,6 +31,7 @@ class CosmessSessionComponent extends SessionComponent {
  * @params['type'] : boolean for success / error class message
  */
 	public function setFlash($message, $element = 'default', $params = array(), $key = 'flash') {
+		$StrUtil = new StrUtil;
 		$flashType = Configure::read('Cosmess.Params.flashType');
 		if (!empty($flashType)) {
 			switch ($flashType) {
@@ -40,14 +48,18 @@ class CosmessSessionComponent extends SessionComponent {
 					$error = 'error';
 					break;
 			}
-			if (isset($params['type'])) {
-				if ($params['type']) {
-					$params['class'] = $success;
-				} else {
-					$params['class'] = $error;
+			if (isset($params['class'])) {
+				$match = $StrUtil->findMatch($params['class']);
+				switch ($match) {
+					case 'success':
+						$params['class'] = $success;
+						break;
+					case 'error':
+						$params['class'] = $error;
+						break;
 				}
 			} else {
-				$params['class'] = $error;
+				$params = $params;
 			}
 		} else {
 			$params = $params;
