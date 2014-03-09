@@ -38,14 +38,17 @@ class CosmessSessionComponent extends SessionComponent {
 				case 'foundation':
 					$success = Configure::read('Cosmess.Class.foundation.success');
 					$error = Configure::read('Cosmess.Class.foundation.error');
+					$info = Configure::read('Cosmess.Class.foundation.info');
 					break;
 				case 'bootstrap':
 					$success = Configure::read('Cosmess.Class.bootstrap.success');
 					$error = Configure::read('Cosmes.Class.bootstrap.error');
+					$info = Configure::read('Cosmess.Class.bootstrap.info');
 					break;
 				default:
 					$success = 'success';
 					$error = 'error';
+					$info = 'info';
 					break;
 			}
 			if (isset($params['class'])) {
@@ -56,6 +59,9 @@ class CosmessSessionComponent extends SessionComponent {
 						break;
 					case 'error':
 						$params['class'] = $error;
+						break;
+					case 'info':
+						$params['class'] = $info;
 						break;
 				}
 			} else {

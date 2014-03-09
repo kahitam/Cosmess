@@ -5,11 +5,13 @@
  */
 
 $config = array(
-	'Cosmess.Params.flash_type' => '',
+	'Cosmess.Params.flashType' => '',
 
-	'Cosmess.Class.foundation.success' => '',
-	'Cosmess.Class.foundation.error' => '',
+	'Cosmess.Class.foundation.success' => 'alert-box success',
+	'Cosmess.Class.foundation.error' => 'alert-box warning',
+	'Cosmess.Class.foundation.info' => 'alert-box info',
 
-	'Cosmess.Class.bootstrap.success' => '',
-	'Cosmess.Class.bootstrap.error' => ''
+	'Cosmess.Class.bootstrap.success' => 'alert alert-success',
+	'Cosmess.Class.bootstrap.error' => 'alert alert-danger'
+	'Cosmess.Class.bootstrap.info' => 'alert alert-info'
 );
