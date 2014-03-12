@@ -17,12 +17,8 @@ class CosmessSessionComponent extends SessionComponent {
 		parent::__construct($collection, $settings);
 	}
 
-	public function initialize(Controller $controller) {
-		$this->Session = $this->CosmessSession;
-	}
-
 	public function startup(Controller $controller) {
-		$this->controller = $controller;
+		$controller->Session = $this;
 	}
 
 /**
