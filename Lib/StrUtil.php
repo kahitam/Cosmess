@@ -16,7 +16,6 @@ class StrUtil extends Object {
 		$types = Configure::read('Cosmess.types');
 		foreach ($types as $type) {
 			$match = preg_match('/'.$type.'/', $value);
-			//if (preg_match('/'.$type.'/', $value) === true) {
 			if ($match) {
 				return $type;
 			}
