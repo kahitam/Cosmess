@@ -38,7 +38,7 @@ class CosmessSessionComponent extends SessionComponent {
 					break;
 				case 'bootstrap':
 					$success = Configure::read('Cosmess.Class.bootstrap.success');
-					$error = Configure::read('Cosmes.Class.bootstrap.error');
+					$error = Configure::read('Cosmess.Class.bootstrap.error');
 					$info = Configure::read('Cosmess.Class.bootstrap.info');
 					break;
 				default:
@@ -66,7 +66,6 @@ class CosmessSessionComponent extends SessionComponent {
 		} else {
 			$params = $params;
 		}
-		unset($params['type']);
 		CakeSession::write('Message.' . $key, compact('message', 'element', 'params'));
 	}
 }
